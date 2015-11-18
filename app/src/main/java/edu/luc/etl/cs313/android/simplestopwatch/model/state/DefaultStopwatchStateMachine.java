@@ -40,8 +40,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 	// forward event uiUpdateListener methods to the current state
 	// these must be synchronized because events can come from the
 	// UI thread or the timer thread
-	@Override public synchronized void onStartStop() { state.onStartStop(); }
-	@Override public synchronized void onLapReset()  { state.onLapReset(); }
+	@Override public synchronized void onClick() { state.onClick(); }
 	@Override public synchronized void onTick()      { state.onTick(); }
 
 	@Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
@@ -50,14 +49,14 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 	// known states
 	private final StopwatchState STOPPED     = new StoppedState(this);
 	private final StopwatchState RUNNING     = new RunningState(this);
-	private final StopwatchState LAP_RUNNING = new LapRunningState(this);
-	private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
+	private final StopwatchState ALARM_STATE = new AlarmState(this);
+	private final StopwatchState ADDING_STATE = new AddingState(this);
 
 	// transitions
 	@Override public void toRunningState()    { setState(RUNNING); }
 	@Override public void toStoppedState()    { setState(STOPPED); }
-	@Override public void toLapRunningState() { setState(LAP_RUNNING); }
-	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
+	@Override public void toAlarmState() { setState(ALARM_STATE); }
+	@Override public void toAddingState() { setState(ADDING_STATE); }
 
 	// actions
 	@Override public void actionInit()       { toStoppedState(); actionReset(); }
