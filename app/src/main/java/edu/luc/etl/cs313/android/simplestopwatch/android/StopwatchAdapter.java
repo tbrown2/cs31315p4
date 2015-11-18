@@ -63,12 +63,9 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                final TextView tvS = (TextView) findViewById(R.id.seconds);
-                final TextView tvM = (TextView) findViewById(R.id.minutes);
-                final int seconds = time % Constants.SEC_PER_MIN;
-                final int minutes = time / Constants.SEC_PER_MIN;
-                tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
-                tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
+	            final TextView tvS = (TextView) findViewById(R.id.remain);
+	            final int seconds = time;
+	            tvS.setText(Integer.toString(seconds));
             }
         });
 	}
@@ -89,11 +86,7 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 	}
 
 	// forward event listener methods to the model
-	public void onStartStop(final View view) {
-        model.onStartStop();
-    }
-
-	public void onLapReset(final View view)  {
-        model.onLapReset();
+	public void onClick(final View view) {
+        model.onClick();
     }
 }
