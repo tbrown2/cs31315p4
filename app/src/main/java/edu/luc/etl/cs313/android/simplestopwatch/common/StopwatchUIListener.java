@@ -6,5 +6,5 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
  * @author laufer
  */
 public interface StopwatchUIListener {
-	public void onClick();
+	public void onClick(); //only need to listen for a click of the ADD-RESET button
 }

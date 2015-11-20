@@ -1,5 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model;
 
+import java.io.Serializable;
+
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateSource;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIListener;
 
@@ -10,6 +12,6 @@ import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIListener;
  *
  * @author laufer
  */
-public interface StopwatchModelFacade extends StopwatchUIListener, StopwatchUIUpdateSource {
+public interface StopwatchModelFacade extends StopwatchUIListener, StopwatchUIUpdateSource, Serializable {
     void onStart();
 }

@@ -9,17 +9,9 @@ class StoppedState implements StopwatchState {
 	}
 
 	private final StopwatchSMStateView sm;
-
 	@Override
-	public void onStartStop() {
-		sm.actionStart();
-		sm.toRunningState();
-	}
-
-	@Override
-	public void onLapReset() {
-		sm.actionReset();
-		sm.toStoppedState();
+	public void updateView() {
+		sm.updateUIValue();
 	}
 
 	@Override
@@ -28,12 +20,15 @@ class StoppedState implements StopwatchState {
 	}
 
 	@Override
-	public void updateView() {
-		sm.updateUIRuntime();
+	public int getId() {
+		return R.string.STOPPED;
 	}
 
 	@Override
-	public int getId() {
-		return R.string.STOPPED;
+	public void onClick()
+	{
+		sm.actionAdd(); //for a smooth transition into the adding state
+		sm.toAddingState();
+		sm.actionStart();
 	}
 }

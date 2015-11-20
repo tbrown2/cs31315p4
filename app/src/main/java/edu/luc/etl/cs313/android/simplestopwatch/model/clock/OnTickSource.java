@@ -6,6 +6,7 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
  *
  * @author laufer
  */
-public interface OnTickSource {
+public interface OnTickSource
+{
     void setOnTickListener(OnTickListener listener);
 }

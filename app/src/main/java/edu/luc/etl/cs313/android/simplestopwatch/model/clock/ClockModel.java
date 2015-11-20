@@ -5,7 +5,8 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.clock;
  *
  * @author laufer
  */
-public interface ClockModel extends OnTickSource {
+public interface ClockModel extends OnTickSource
+{
 	void start();
 	void stop();
 }

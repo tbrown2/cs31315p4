@@ -10,6 +10,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.ConcreteStopwatchModelFacade;
 import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
+import android.content.Context;
 
 /**
  * A thin adapter component for the stopwatch.
@@ -35,7 +36,7 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 		// inject dependency on view so this adapter receives UI events
 		setContentView(R.layout.activity_main);
 		// inject dependency on model into this so model receives UI events
-		this.setModel(new ConcreteStopwatchModelFacade());
+		this.setModel(new ConcreteStopwatchModelFacade(getApplicationContext()));
 		// inject dependency on this into model to register for UI updates
 		model.setUIUpdateListener(this);
 	}
@@ -51,8 +52,6 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
 		super.onStart();
 		model.onStart();
 	}
-
-	// TODO remaining lifecycle methods
 
 	/**
 	 * Updates the seconds and minutes in the UI.

@@ -10,8 +10,6 @@ import java.util.TimerTask;
  */
 public class DefaultClockModel implements ClockModel {
 
-	// TODO make accurate by keeping track of partial seconds when canceled etc.
-
 	private Timer timer;
 
 	private OnTickListener listener;

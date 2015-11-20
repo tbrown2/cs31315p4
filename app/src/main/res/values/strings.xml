@@ -6,7 +6,7 @@
     <string name="title_activity_main">Loyola CS 313/413 Stopwatch</string>
 
     <!-- view strings -->
-    <string name="ADD-RESET">Add-Reset</string>
+    <string name="ADDRESET">AddReset</string>
     <string name="REMAINING">00</string>
 
     <!-- model state display names -->
