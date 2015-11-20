@@ -1,95 +1,11 @@
-# Background
+﻿## State-Machine versus the code
 
-The goal of this project is to convert a simple Java stopwatch to an
-Android application.  The original java code can be found
-[here](https://github.com/concurrency-cs-luc-edu/simplestopwatch-java).
+Originally, the state machine diagram included only three states, stopped, alarm, and running. However, I felt that it required to also have a state where you were adding values to the counter. Moving from such a static and simple design of the state machines to a fairly complicated program using complex design decisions is very difficult.
 
-# Learning Objectives
+I found that while I could have a high level understanding of the project, coding what would need to be the reactions of the application when you invoked the onClick method making an alarm sound was complicated. The devil is in the details, and the state machine can only go so far unfortunately.
 
-## Modeling
+I still need a couple of changes to my application - i need to have two zeroes until 10 is reached, and I didn't accomplish that. On a separate note - It definitely needs a more creative design flair. I would like to at some point accomplish the extra credit, where you add a textbox, but I unfortunately don't have enough time. 
 
-* Modeling state-dependent behavior with state machine diagrams
-  (see also [here](/loyolachicagocs_comp313/stopwatch-android-java/src/default/doc))
-* Distinguishing between view states and (behavioral) model states
+# Background and Pair Development
 
-## Semantics
-
-* Event-driven/asynchronous program execution
-* User-triggered input events
-* Internal events from background timers
-* Concurrency issues: single-thread rule of accessing/updating the view in the GUI thread
-
-## Architecture and Design
-
-* Key architectural issues and patterns
-    * Simple dependency injection (DI)
-    * Model-view-adapter (MVA) architectural pattern
-    * Mapping MVA to Android
-    * Difference between MVA and model-view-controller (MVC)
-    * Distinguishing among dumb, reactive, and autonomous model components
-* Key design patterns
-    * Implementing event-driven behavior using the Observer pattern
-    * Implementing state-dependent behavior using the State pattern
-    * Command pattern for representing tasks as objects
-    * Façade pattern for hiding complexity in the model from the adapter
-* Relevant class-level design principles
-    * Dependency Inversion Principle (DIP)
-    * Single Responsibility Principle (SRP)
-    * Interface Segregation Principle (ISP)
-* Package-level architecture and relevant principles
-    * Dependency graph
-      (see also [here](/loyolachicagocs_comp313/stopwatch-android-java/src/default/doc))
-    * Stable Dependencies Principle (SDP)
-    * Acyclic Dependencies Principle (ADP)
-* [Architectural journey](/stopwatch-android-java/commits)
-
-## Testing
-
-* Different types of testing
-    * Component-level unit testing
-    * System testing
-    * Instrumentation testing
-* Mock-based testing
-* Testcase Superclass pattern
-* Test coverage
-
-# Setting up the Environment
-
-Check out the project using Android Studio. This creates the `local.properties` file
-with the required line
-
-    sdk.dir=<root folder of Android Studio's Android SDK installation>
-
-# Running the Application
-
-In Android Studio: `Run > Run app`
-
-# Running the Tests
-
-## Unit tests including out-of-emulator system tests using Robolectric
-
-In Android Studio:
-
-* `View > Tool Windows > Build Variants`
-* `Test Artifact: Unit Tests`
-* right-click on `app/java/edu.luc.etl.cs313... (test)`, then choose `Run Tests in edu.luc.etl.cs313...`
-
-You can also use Gradle:
-
-    $ ./gradlew testDebug
-
-You can view the resulting test reports in HTML by opening this file in your browser:
-
-    app/build/reports/tests/debug/index.html
-
-## Android instrumentation tests (in-emulator/device system tests)
-
-In Android Studio:
-
-* `View > Tool Windows > Build Variants`
-* `Test Artifact: Android Instrumentation Tests`
-* right-click on `app/java/edu...simplestopwatch (androidTest)`, then choose `Run Tests in edu...`
-
-You can also use Gradle:
-
-    $ ./gradlew connectedDebugAndroidTest
+My partner, Robert Hernandez, and I dropped out of contact fairly early in the process of completing this project. Moreover,I did not give myself enough time to complete the necessary objectives stress-free.I wasn't completely alone in trying to understand the concepts as I had my fellow classmates to approach and the tutors to help me understand the various concepts and challenges project 4 presented.
